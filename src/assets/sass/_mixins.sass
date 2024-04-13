@@ -1,0 +1,21 @@
+@use 'variables'
+
+@mixin flex-center-between
+    align-items: center
+    display: flex
+    justify-content: space-between
+
+@mixin container
+    margin: 0 auto
+    max-width: min(90%, variables.$container-xl)
+
+@mixin content-container
+    padding: 2rem 0
+    width: 100%
+
+@mixin border-box
+    border: 1px solid variables.$concreto
+    border-radius: variables.$border-base
+    box-shadow: .3rem .3rem .5rem rgba(0, 0, 0, 0.2)
+    padding: 2rem
+    margin: 2rem 0
