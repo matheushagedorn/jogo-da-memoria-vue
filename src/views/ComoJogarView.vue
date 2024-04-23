@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="como-jogar">
         <p>
-            Objetivo do jogo:
+           <h1> Objetivo do jogo</h1>
             
             O objetivo do jogo da memória é encontrar pares de cartas correspondentes em um conjunto de cartas viradas para baixo. Quanto mais pares você encontrar, mais pontos você ganha.
                     

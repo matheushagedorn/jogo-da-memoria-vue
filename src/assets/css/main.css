@@ -26,7 +26,7 @@
   font-family: "pixelify-sans";
   src: url(src/assets/fonts/PixelifySans-Regular.ttf);
 }
-.login {
+.menu-principal {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -43,7 +43,7 @@
   background-size: calc(var(--s) * 1.732) var(--s);
   user-select: none;
 }
-.login-form {
+.menu-principal-form {
   border: 1px solid #899064;
   border-radius: 0.3rem;
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
@@ -63,13 +63,13 @@
   width: 100%;
   text-align: center;
 }
-.login-form img {
+.menu-principal-form img {
   width: 20rem;
   height: auto;
   transform: translateY(0px);
   animation: img-float 3s ease-in-out infinite;
 }
-.login-form input {
+.menu-principal-form input {
   all: revert;
   font-family: "pixelify-sans", sans-serif;
   font-size: clamp(1.8144rem, 1.5963rem + 1.0902vw, 2.4413rem);
@@ -80,7 +80,7 @@
   padding: 0.5rem;
   width: calc(100% - 1rem);
 }
-.login-form button {
+.menu-principal-form button {
   padding: 1.3em 3em;
   font-size: clamp(1.05rem, 0.9804rem + 0.3478vw, 1.25rem);
   text-transform: uppercase;
@@ -96,14 +96,14 @@
   outline: none;
   margin: 1rem;
 }
-.login-form button:hover {
+.menu-principal-form button:hover {
   background-color: rgb(0, 0, 0);
   box-shadow: 0px 15px 20px #D1CCBD;
   color: #fff;
   transform: translateY(-7px);
   cursor: pointer;
 }
-.login-form button:active {
+.menu-principal-form button:active {
   transform: translateY(-1px);
 }
 
@@ -127,6 +127,23 @@
   100% {
     transform: translatey(0px);
   }
+}
+.como-jogar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  --s: 84px;
+  --c1: #f2f2f2;
+  --c2: #cdcbcc;
+  --c3: #999999;
+  --_g: 0 120deg, #0000 0;
+  background: conic-gradient(from 0deg at 83.3333333333% 33.3333333333%, var(--c3) var(--_g)), conic-gradient(from -120deg at 16.6666666667% 33.3333333333%, var(--c2) var(--_g)), conic-gradient(from 120deg at 33.3333333333% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from 120deg at 66.6666666667% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from -180deg at 33.3333333333% 50%, var(--c2) 60deg, var(--c1) var(--_g)), conic-gradient(from 60deg at 66.6666666667% 50%, var(--c1) 60deg, var(--c3) var(--_g)), conic-gradient(from -60deg at 50% 33.3333333333%, var(--c1) 120deg, var(--c2) 0 240deg, var(--c3) 0);
+  background-size: calc(var(--s) * 1.732) var(--s);
+  user-select: none;
 }
 
 /*# sourceMappingURL=main.css.map */

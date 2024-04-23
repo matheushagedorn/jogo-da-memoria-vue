@@ -1,5 +1,13 @@
 <script setup>
-import { RouterView } from 'vue-router'
+import { onBeforeMount } from 'vue'
+import { RouterView , useRouter } from 'vue-router'
+
+const router = useRouter()
+
+onBeforeMount(() => {
+  router.push({ name: 'menu-principal' })
+})
+
 </script>
 
 <template>
