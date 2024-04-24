@@ -10,6 +10,7 @@
     "sass": "sass --watch src/assets/sass/main.sass:src/assets/css/main.css"
   },
   "dependencies": {
+    "@kolirt/vue-modal": "^1.0.1",
     "sass": "^1.75.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"

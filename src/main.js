@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import { createModal } from '@kolirt/vue-modal'
 import App from './App.vue'
 import router from './router'
 

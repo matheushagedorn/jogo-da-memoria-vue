@@ -1,7 +1,7 @@
 @use '../variables'
 @use '../mixins'
 
-.como-jogar
+.creditos
     @include mixins.flex-center-between
     justify-content: center
     width: 100%
@@ -17,34 +17,33 @@
     user-select: none
     &-container
         @include mixins.border-box
-        animation: login-slideIn 0.5s ease-in-out forwards
+        flex-direction: column
+        position: relative
+        align-items: center
+        justify-content: center
         background-color: variables.$branco
-        &-header
-            font-size: variables.$font-2xl
-            @include mixins.flex-center-between
+        animation: login-slideIn 0.5s ease-in-out forwards
+        p
             font-family: variables.$font-chalet
-            flex-direction: row
+            font-size: variables.$font-md
             margin: 0 auto
             max-width: variables.$container-md
             padding: .5rem
             width: 100%
             text-align: center
-            align-items: center
-            justify-content: center
-            font-weight: bold
-    p
-        @include mixins.flex-center-between
-        font-family: variables.$font-chalet
-        font-size: variables.$font-md
-        flex-direction: row
-        margin: 0 auto
-        max-width: variables.$container-md
-        padding: .5rem
-        width: 100%
-        text-align: center
-        align-items: center
-        justify-content: center
         
+        &-links
+            justify-content: center
+            text-align: center
+            img          
+                width: 2rem
+                margin: .5rem
+            
+            
+
+        a:hover
+            cursor: pointer
+
 @keyframes login-slideIn
     0%
         transform: translateX(100%)

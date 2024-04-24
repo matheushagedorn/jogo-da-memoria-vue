@@ -1,0 +1,40 @@
+@use '../../variables'
+@use '../../mixins'
+
+.titulo-pagina
+    @include mixins.flex-center-between
+    background-color: variables.$branco
+    border-bottom: 1px solid variables.$areia
+    color: variables.$areia
+    font-family: variables.$font-chalet
+    font-size: variables.$font-2xl
+    height: 4rem
+    padding: 0 1rem
+    position: sticky
+    top: 0
+    z-index: 888
+
+    &-button:hover
+        color: variables.$concreto
+        cursor: pointer
+        scale: 1.1
+
+    &::before
+        background-color: variables.$branco
+        border-bottom: 1px solid variables.$areia
+        content: ''
+        height: 4rem
+        position: absolute
+        top: 0
+        left: -1rem
+        width: 1rem
+
+    &::after
+        background-color: variables.$branco
+        border-bottom: 1px solid variables.$areia
+        content: ''
+        height: 4rem
+        position: absolute
+        top: 0
+        right: -1rem
+        width: 1rem

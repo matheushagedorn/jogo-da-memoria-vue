@@ -128,14 +128,14 @@
     transform: translatey(0px);
   }
 }
-.como-jogar {
+.game {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  justify-content: center;
   width: 100%;
   height: 100vh;
   display: flex;
-  width: 100%;
   --s: 84px;
   --c1: #f2f2f2;
   --c2: #cdcbcc;
@@ -144,6 +144,207 @@
   background: conic-gradient(from 0deg at 83.3333333333% 33.3333333333%, var(--c3) var(--_g)), conic-gradient(from -120deg at 16.6666666667% 33.3333333333%, var(--c2) var(--_g)), conic-gradient(from 120deg at 33.3333333333% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from 120deg at 66.6666666667% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from -180deg at 33.3333333333% 50%, var(--c2) 60deg, var(--c1) var(--_g)), conic-gradient(from 60deg at 66.6666666667% 50%, var(--c1) 60deg, var(--c3) var(--_g)), conic-gradient(from -60deg at 50% 33.3333333333%, var(--c1) 120deg, var(--c2) 0 240deg, var(--c3) 0);
   background-size: calc(var(--s) * 1.732) var(--s);
   user-select: none;
+}
+.game-container {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  animation: login-slideIn 0.5s ease-in-out forwards;
+  background-color: #FFF;
+}
+
+.como-jogar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  --s: 84px;
+  --c1: #f2f2f2;
+  --c2: #cdcbcc;
+  --c3: #999999;
+  --_g: 0 120deg, #0000 0;
+  background: conic-gradient(from 0deg at 83.3333333333% 33.3333333333%, var(--c3) var(--_g)), conic-gradient(from -120deg at 16.6666666667% 33.3333333333%, var(--c2) var(--_g)), conic-gradient(from 120deg at 33.3333333333% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from 120deg at 66.6666666667% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from -180deg at 33.3333333333% 50%, var(--c2) 60deg, var(--c1) var(--_g)), conic-gradient(from 60deg at 66.6666666667% 50%, var(--c1) 60deg, var(--c3) var(--_g)), conic-gradient(from -60deg at 50% 33.3333333333%, var(--c1) 120deg, var(--c2) 0 240deg, var(--c3) 0);
+  background-size: calc(var(--s) * 1.732) var(--s);
+  user-select: none;
+}
+.como-jogar-container {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  animation: login-slideIn 0.5s ease-in-out forwards;
+  background-color: #FFF;
+}
+.como-jogar-container-header {
+  font-size: clamp(1.8144rem, 1.5963rem + 1.0902vw, 2.4413rem);
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  font-family: "chalet", sans-serif;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 768px;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.como-jogar p {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  font-family: "chalet", sans-serif;
+  font-size: clamp(1.05rem, 0.9804rem + 0.3478vw, 1.25rem);
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 768px;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes login-slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes img-float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+.creditos {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  --s: 84px;
+  --c1: #f2f2f2;
+  --c2: #cdcbcc;
+  --c3: #999999;
+  --_g: 0 120deg, #0000 0;
+  background: conic-gradient(from 0deg at 83.3333333333% 33.3333333333%, var(--c3) var(--_g)), conic-gradient(from -120deg at 16.6666666667% 33.3333333333%, var(--c2) var(--_g)), conic-gradient(from 120deg at 33.3333333333% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from 120deg at 66.6666666667% 83.3333333333%, var(--c1) var(--_g)), conic-gradient(from -180deg at 33.3333333333% 50%, var(--c2) 60deg, var(--c1) var(--_g)), conic-gradient(from 60deg at 66.6666666667% 50%, var(--c1) 60deg, var(--c3) var(--_g)), conic-gradient(from -60deg at 50% 33.3333333333%, var(--c1) 120deg, var(--c2) 0 240deg, var(--c3) 0);
+  background-size: calc(var(--s) * 1.732) var(--s);
+  user-select: none;
+}
+.creditos-container {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF;
+  animation: login-slideIn 0.5s ease-in-out forwards;
+}
+.creditos-container p {
+  font-family: "chalet", sans-serif;
+  font-size: clamp(1.05rem, 0.9804rem + 0.3478vw, 1.25rem);
+  margin: 0 auto;
+  max-width: 768px;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+.creditos-container-links {
+  justify-content: center;
+  text-align: center;
+}
+.creditos-container-links img {
+  width: 2rem;
+  margin: 0.5rem;
+}
+.creditos-container a:hover {
+  cursor: pointer;
+}
+
+@keyframes login-slideIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes img-float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+.titulo-pagina {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: #FFF;
+  border-bottom: 1px solid #D1CCBD;
+  color: #D1CCBD;
+  font-family: "chalet", sans-serif;
+  font-size: clamp(1.8144rem, 1.5963rem + 1.0902vw, 2.4413rem);
+  height: 4rem;
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 888;
+}
+.titulo-pagina-button:hover {
+  color: #899064;
+  cursor: pointer;
+  scale: 1.1;
+}
+.titulo-pagina::before {
+  background-color: #FFF;
+  border-bottom: 1px solid #D1CCBD;
+  content: "";
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  width: 1rem;
+}
+.titulo-pagina::after {
+  background-color: #FFF;
+  border-bottom: 1px solid #D1CCBD;
+  content: "";
+  height: 4rem;
+  position: absolute;
+  top: 0;
+  right: -1rem;
+  width: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */
