@@ -48,7 +48,18 @@
             color: #fff
             transform: translateY(-7px)
             cursor: pointer
-
+        &-player
+            @include mixins.border-box
+            justify-content: center
+            align-items: center
+            text-align: center
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            grid-template-rows: auto 1fr
+            &-i
+                @include mixins.border-box
+            &-ii
+                @include mixins.border-box
         &-cards
             font-family: variables.$font-chalet
             font-size: variables.$font-xl

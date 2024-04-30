@@ -186,6 +186,33 @@
   transform: translateY(-7px);
   cursor: pointer;
 }
+.game-container-player {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+}
+.game-container-player-i {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.game-container-player-ii {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+}
 .game-container-cards {
   font-family: "chalet", sans-serif;
   font-size: clamp(1.5119rem, 1.3584rem + 0.7674vw, 1.9531rem);
