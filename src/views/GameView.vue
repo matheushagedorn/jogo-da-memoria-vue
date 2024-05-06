@@ -10,7 +10,7 @@
       <div class="game-container-player">
         <div class="game-container-player-pontuacao">Pontuação</div>
         <div class="game-container-player-i">
-          Jogador: {{ pontuacaoJogador }}
+          {{ playerName }}: {{ pontuacaoJogador }}
           <div class="game-container-player-i-turno">
             <p>
               {{
@@ -49,6 +49,12 @@
           <span v-else>?</span>
         </button>
       </div>
+      <div v-if="showModal" class="game-modal">
+        <div class="game-modal-content">
+          <span class="game-close" @click="resetarJogo">&times;</span>
+          <p>{{ resultado }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -76,9 +82,14 @@ const NUMERO_DE_CARTAS = 12;
 
 let cartaViradaIndex = null;
 let segundaCartaViradaIndex = null;
+let cartasViradas = [];
+const playerName = ref("")
 const cartas = ref([]);
 const pontuacaoJogador = ref(0);
+const pontuacaoIA = ref(0);
 const turnoJogador = ref(true);
+const resultado = ref("");
+const showModal = ref(false);
 
 function iniciarNovoJogo() {
   const imagensDuplas = [...imagens, ...imagens];
@@ -90,7 +101,10 @@ function iniciarNovoJogo() {
   }));
   turnoJogador.value = true;
   pontuacaoJogador.value = 0;
-  turnoJogador.value = Math.random() < 0.5;
+  pontuacaoIA.value = 0;
+  cartaViradaIndex = null;
+  segundaCartaViradaIndex = null;
+  cartasViradas = [];
 }
 
 function viraCarta(index) {
@@ -104,7 +118,12 @@ function viraCarta(index) {
         cartas.value[cartaViradaIndex].imagem ===
         cartas.value[segundaCartaViradaIndex].imagem
       ) {
-        pontuacaoJogador.value += 1;
+        if (turnoJogador.value) {
+          pontuacaoJogador.value += 1;
+        } else {
+          pontuacaoIA.value += 1;
+          viraCartaIA();
+        }
         cartaViradaIndex = null;
         segundaCartaViradaIndex = null;
       } else {
@@ -113,50 +132,81 @@ function viraCarta(index) {
           cartas.value[segundaCartaViradaIndex].virada = false;
           cartaViradaIndex = null;
           segundaCartaViradaIndex = null;
-          turnoJogador.value = true;
+          turnoJogador.value = !turnoJogador.value;
+          if (!turnoJogador.value) {
+            viraCartaIA();
+          }
         }, 1000);
       }
     }
   }
+  if (cartas.value.every((carta) => carta.virada)) {
+    verificarFimDoJogo();
+  }
 }
 
 function viraCartaIA() {
-  if (!turnoJogador) {
-    let parEncontrado = false;
-
-    // Encontrar par
-    for (let i = 0; i < cartasViradas.length; i++) {
-      if (
-        cartasViradas[i].imagem === cartaViradaIndex &&
-        cartasViradas[i].jogador !== true
-      ) {
-        parEncontrado = true;
-        segundaCartaViradaIndex = cartasViradas[i].indice;
-        break;
-      }
-    }
-
-    // Pontuar e virar cartas
-    if (parEncontrado) {
-      pontuacaoIA.value += 1;
-      cartas[cartaViradaIndex].virada = true;
-      cartas[segundaCartaViradaIndex].virada = true;
-      cartasViradas = cartasViradas.filter(
-        (carta) =>
-          carta.indice !== cartaViradaIndex &&
-          carta.indice !== segundaCartaViradaIndex
+  setTimeout(() => {
+    let cartasViradasIndices = cartasViradas.map((carta) => carta.indice);
+    let cartasDisponiveis = cartas.value
+      .map((carta, index) => ({ index, carta }))
+      .filter(
+        ({ index, carta }) =>
+          !carta.virada && !cartasViradasIndices.includes(index)
       );
-      turnoJogador.value = true;
-    } else {
-      // Jogar aleatoriamente
-      let cartaAleatoriaIndex = Math.floor(Math.random() * cartas.length);
-      while (cartas[cartaAleatoriaIndex].virada) {
-        cartaAleatoriaIndex = Math.floor(Math.random() * cartas.length);
-      }
-      viraCarta(cartaAleatoriaIndex);
+
+    let cartaAleatoriaIndices = [];
+    while (cartaAleatoriaIndices.length < 2 && cartasDisponiveis.length > 0) {
+      let indexAleatorio = Math.floor(Math.random() * cartasDisponiveis.length);
+      cartaAleatoriaIndices.push(cartasDisponiveis[indexAleatorio].index);
+      cartasDisponiveis.splice(indexAleatorio, 1);
     }
+
+    cartaAleatoriaIndices.forEach((index) => {
+      viraCarta(index);
+    });
+
+    setTimeout(() => {
+      if (
+        cartaViradaIndex !== null &&
+        segundaCartaViradaIndex !== null &&
+        cartas.value[cartaViradaIndex].imagem ===
+          cartas.value[segundaCartaViradaIndex].imagem
+      ) {
+        viraCartaIA();
+      }
+    }, 1000);
+  }, 1000);
+  if (cartas.value.every((carta) => carta.virada)) {
+    verificarFimDoJogo();
   }
 }
+
+function verificarFimDoJogo() {
+  if (cartas.value.some((carta) => !carta.virada)) {
+    return;
+  }
+  const cartasViradas = cartas.value.filter((carta) => carta.virada);
+  for (let i = 0; i < cartasViradas.length; i++) {
+    for (let j = i + 1; j < cartasViradas.length; j++) {
+      if (cartasViradas[i].imagem === cartasViradas[j].imagem) {
+        return;
+      }
+    }
+  }
+  if (pontuacaoJogador.value > pontuacaoIA.value) {
+    resultado.value = "Você venceu!";
+  } else if (pontuacaoIA.value > pontuacaoJogador.value) {
+    resultado.value = "Você perdeu!";
+  } else {
+    resultado.value = "Empate!";
+  }
+  setTimeout(() => {
+    showModal.value = true;
+  }, 1000);
+  showModal.value = true;
+  }
+
 
 function resetarJogo() {
   iniciarNovoJogo();
