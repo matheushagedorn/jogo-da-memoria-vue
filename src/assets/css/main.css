@@ -241,11 +241,13 @@
   display: flex;
   flex-direction: column;
   font-family: "chalet", sans-serif;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   animation: login-slideIn 0.5s ease-in-out forwards;
   background-color: #FFF;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 .game-container button:hover {
   cursor: pointer;
@@ -282,8 +284,9 @@
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
   padding: 2rem;
   margin: 2rem 0;
-  margin: 0.5rem;
-  padding: 0.5rem;
+  margin: 0.1rem;
+  padding-top: 0.1rem;
+  padding-bottom: 1rem;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -291,93 +294,149 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
 }
-.game-container-player-pontuacao {
-  grid-column: 1/4;
-  grid-row: 1/2;
-}
-.game-container-player-i {
+.game-container-player-turno {
   border: 1px solid #899064;
   border-radius: 0.3rem;
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
   padding: 2rem;
   margin: 2rem 0;
-  padding: 1rem;
-  margin: 1rem;
-}
-.game-container-player-i-turno {
-  grid-column: 1/2;
-  grid-row: 2/3;
-  margin-top: 1rem;
-}
-.game-container-player-vs {
-  display: flex;
+  grid-column: 2/3;
+  grid-row: 3;
   justify-content: center;
   align-items: center;
+  align-self: center;
+  padding: 1rem;
+  margin: auto auto;
 }
-.game-container-player-ii {
+.game-container-player-vs {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-top: 5rem;
+  padding: 0.1rem;
+  height: 15rem;
+  width: 15rem;
+}
+.game-container-player-pontuacao {
+  font-size: clamp(0.875rem, 0.8315rem + 0.2174vw, 1rem);
   border: 1px solid #899064;
   border-radius: 0.3rem;
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
   padding: 2rem;
   margin: 2rem 0;
+  margin: 1rem auto;
+  padding: 0.4rem;
+}
+.game-container-player-i {
   padding: 1rem;
   margin: 1rem;
-}
-.game-container-player-ii-turno {
-  grid-column: 3/4;
-  grid-row: 2/3;
-  margin-top: 1rem;
-}
-.game-container-cards {
-  display: flex;
-  justify-content: center;
-  font-family: "chalet", sans-serif;
   font-size: clamp(1.5119rem, 1.3584rem + 0.7674vw, 1.9531rem);
-  display: grid;
-  width: 55vh;
-  height: 55vh;
-  grid-template-columns: repeat(6, 1fr);
-  column-gap: 0.5rem;
 }
-.game-container-cards-item {
+.game-container-player-i p {
   border: 1px solid #899064;
   border-radius: 0.3rem;
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
-  margin: 0.1rem;
-  margin-top: 0.5rem;
-  background: rgb(153, 153, 153);
-  text-align: center;
-  height: 6rem;
-  max-height: 100%;
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 90%;
+  padding: 0.1rem;
 }
-.game-modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
+.game-container-player-i-rodada-escolha {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  padding: 0.1rem;
+  width: 10rem;
+  height: 10rem;
+}
+.game-container-player-ii {
+  padding: 1rem;
+  margin: 1rem;
+  font-size: clamp(1.5119rem, 1.3584rem + 0.7674vw, 1.9531rem);
+}
+.game-container-player-ii p {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 90%;
+  padding: 0.1rem;
+}
+.game-container-player-ii-rodada-escolha {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  padding: 0.1rem;
+  width: 10rem;
+  height: 10rem;
+}
+.game-container-escolhaJogador {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  gap: 6rem;
+  padding: 0.1rem;
 }
-.game-modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+.game-container-escolhaJogador-pedra {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 7rem;
+  padding: 1rem;
+  font-weight: 500;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
 }
-.game-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.game-container-escolhaJogador-pedra:hover {
+  box-shadow: 0px 15px 20px #D1CCBD;
+  background-color: #e6e6e6;
 }
-.game-close:hover, .game-close:focus {
-  color: black;
-  text-decoration: none;
+.game-container-escolhaJogador-papel {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 7rem;
+  padding: 1rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  outline: none;
+}
+.game-container-escolhaJogador-papel:hover {
+  box-shadow: 0px 15px 20px #D1CCBD;
+  background-color: #e6e6e6;
+}
+.game-container-escolhaJogador-tesoura {
+  border: 1px solid #899064;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 7rem;
+  padding: 1rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
   cursor: pointer;
+  outline: none;
+}
+.game-container-escolhaJogador-tesoura:hover {
+  box-shadow: 0px 15px 20px #D1CCBD;
+  background-color: #e6e6e6;
 }
 
 .como-jogar {

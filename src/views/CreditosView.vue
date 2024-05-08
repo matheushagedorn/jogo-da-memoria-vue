@@ -5,7 +5,7 @@
       <p>
         Esse é um projeto desenvolvido por alunos do curso Engenharia de
         Software na <span style="font-weight: bold">UNIVILLE</span> para a disciplina Fundamentos da Inteligência
-        Artificial. O jogo que leva o nome <span style="font-weight: bold">MemórIA</span> consiste em um jogo da memória
+        Artificial. O jogo que leva o nome <span style="font-weight: bold">Jo-Ken-IA</span> consiste em um jogo de Jo-Ken-Po
         em que o jogador joga contra uma inteligência artificial treinada
         com a heurística. 
         <br>

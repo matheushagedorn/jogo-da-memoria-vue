@@ -1,37 +1,43 @@
 <template>
   <div class="como-jogar">
     <div class="como-jogar-container">
-    <TituloPagina titulo="Como jogar" link="/menu-principal" />
+      <TituloPagina titulo="Como jogar" link="/menu-principal" />
       <h1 class="como-jogar-container-header">Objetivo do jogo</h1>
       <p>
-        Encontre pares de cartas correspondentes em um conjunto virado para
-        baixo para ganhar pontos.
+        O jogo consiste basicamente em 3 itens: Pedra, Papel ou Tesoura. O
+        jogador deverá escolher um desses itens para vencer o adversário. Para
+        vencer, o item escolhido pelo jogador deverá ser mais forte que o
+        escolhido pelo adversário seguindo a seguinte lógica:
+        <br />
+        <br />
+        Pedra > Tesoura
+        <br />
+        Tesoura > Papel
+        <br />
+        Papel > Pedra
       </p>
-      <br>
-      <h1 class="como-jogar-container-header">Preparação:</h1>
-      <p>
-        As cartas são embaralhadas automaticamente e dispostas viradas para
-        baixo em uma grade.
-      </p>
-      <br>
       <h1 class="como-jogar-container-header">Como jogar:</h1>
       <p>
-        Os jogadores viram duas cartas por vez. Se correspondem, ganham um ponto
-        e removem as cartas. Se não, as cartas são viradas de volta. O jogo
-        continua até que todas as cartas sejam combinadas.
+        O jogador deverá selecionar entre pedra, papel ou tesoura nos cards
+        mostrados e aguardar a jogada da IA, o jogo então irá pontuar e passar
+        para a próxima rodada. Quem tiver mais pontos após 5 rodadas vence o
+        jogo.
       </p>
-      <br>
-      
-      <h1 class="como-jogar-container-header">Dicas para melhorar sua memória no jogo:</h1>
+      <h1 class="como-jogar-container-header">
+        Dicas para melhorar sua estratégia no jogo:
+      </h1>
       <p>
-        Concentre-se em lembrar a localização das cartas viradas, observe
-        padrões e cores, e pratique regularmente.
+        Se um dos jogadores vencer, ele vai manter a mesma jogada no próximo turno, ou seja, vai escolher o mesmo símbolo.
+        <br>
+        <br>
+        Quando um jogador perde, normalmente ele vai mudar a direção das ações
+        em um "sentido horário": pedra vira papel, papel troca por tesoura e
+        tesoura alterna para pedra.
       </p>
-      <br>
     </div>
   </div>
 </template>
 
 <script setup>
-import TituloPagina from '@/components/helpers/TituloPagina.vue';
+import TituloPagina from "@/components/helpers/TituloPagina.vue";
 </script>
