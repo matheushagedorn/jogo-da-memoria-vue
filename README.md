@@ -20,7 +20,7 @@ Este é um simples jogo de Pedra, Papel e Tesoura implementado usando Vue.js. El
 - O vencedor da rodada será determinado com base nas regras do Pedra, Papel e Tesoura.  
 - Após 5 rodadas, o jogo mostrará o vencedor da partida (Jogador, Computador ou Empate).  
 8. Resetar o Jogo: Para reiniciar o jogo e começar de novo, clique no botão "Resetar".  
-##Divirta-se Jogando!  
+## Divirta-se Jogando!  
 Sinta-se à vontade para explorar o código para entender como a lógica do jogo está implementada. Você também pode personalizar o jogo modificando o código de acordo com suas preferências.  
   
 Obs.: Caso queira alterar os estilos, é necessário deixar o script do SASS rodando:``npm run sass``
