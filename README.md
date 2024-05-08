@@ -1,29 +1,32 @@
-# jogo-da-memoria
+#Jogo de Pedra, Papel e Tesoura  
+Este é um simples jogo de Pedra, Papel e Tesoura implementado usando Vue.js. Ele permite que um usuário jogue contra o computador (IA). O jogo acompanha os pontos do jogador e do computador e declara um vencedor após 5 rodadas.
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+#Como Usar  
+Instalação: Clone o repositório ou baixe os arquivos de origem.  
+Configuração: Certifique-se de ter o Node.js e o npm instalados em seu sistema.  
+Dependências: Navegue até o diretório do projeto e instale as dependências usando npm:  
+``sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+sh``
+Executar o Aplicativo: Após instalar as dependências, você pode executar o aplicativo usando o seguinte comando:  
+``sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+sh``
+#Jogar o Jogo: Depois que o aplicativo estiver em execução, abra seu navegador e acesse a URL fornecida (geralmente http://localhost:5173). Você verá a interface do jogo.  
+Interface do Jogo:  
+Jogador: Exibe sua escolha de Pedra, Papel ou Tesoura junto com sua pontuação atual.  
+IA (Computador): Exibe a escolha do computador junto com sua pontuação.  
+Turno: Indica a rodada atual do jogo.  
+Escolha: Clique nos botões para selecionar sua escolha de Pedra, Papel ou Tesoura. Observe que você só pode fazer uma escolha quando for sua vez.  
+Jogabilidade:  
+Clique em um dos botões de escolha (Pedra, Papel ou Tesoura) para fazer sua seleção.  
+O computador selecionará aleatoriamente sua escolha.  
+O vencedor da rodada será determinado com base nas regras do Pedra, Papel e Tesoura.  
+Após 5 rodadas, o jogo declarará o vencedor geral (Jogador, Computador ou Empate).  
+Resetar o Jogo: Para reiniciar o jogo e começar de novo, clique no botão "Resetar".  
+Divirta-se Jogando!  
+Sinta-se à vontade para explorar o código para entender como a lógica do jogo está implementada. Você também pode personalizar o jogo modificando o código de acordo com suas preferências.  
+  
+Contribuidores  
+Seu Nome  
+Se você encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request. Divirta-se jogando!  
