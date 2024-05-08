@@ -23,7 +23,7 @@ Este é um simples jogo de Pedra, Papel e Tesoura implementado usando Vue.js. El
 ## Divirta-se Jogando!  
 Sinta-se à vontade para explorar o código para entender como a lógica do jogo está implementada. Você também pode personalizar o jogo modificando o código de acordo com suas preferências.  
   
-Obs.: Caso queira alterar os estilos, é necessário deixar o script do SASS rodando:``npm run sass``
+Obs.: Caso queira alterar os estilos, é necessário deixar o script do SASS rodando: ``npm run sass``  
   
 ## Contribuidores  
 [Mtheus Hagedorn]([url](https://github.com/matheushagedorn)) 
