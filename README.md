@@ -4,17 +4,9 @@ Este é um simples jogo de Pedra, Papel e Tesoura implementado usando Vue.js. El
 ## Como Usar  
 1. Instalação: Clone o repositório ou baixe os arquivos de origem.  
 2. Configuração: Certifique-se de ter o Node.js e o npm instalados em seu sistema.  
-3. Dependências: Navegue até o diretório do projeto e instale as dependências usando npm:  
+3. Dependências: Navegue até o diretório do projeto e instale as dependências usando npm:  ``npm install``
   
-``
-npm install
-``
-  
-4. Executar o Aplicativo: Após instalar as dependências, você pode executar o aplicativo usando o seguinte comando:  
-  
-``
-npm run dev
-``
+4. Executar o Aplicativo: Após instalar as dependências, você pode executar o aplicativo usando o seguinte comando:  ``npm run dev``
   
 5. Jogar o Jogo: Depois que o aplicativo estiver em execução, abra seu navegador e acesse a URL fornecida (geralmente http://localhost:5173). Você verá a interface do jogo.  
 6. Interface do Jogo:  
@@ -31,11 +23,7 @@ npm run dev
 ##Divirta-se Jogando!  
 Sinta-se à vontade para explorar o código para entender como a lógica do jogo está implementada. Você também pode personalizar o jogo modificando o código de acordo com suas preferências.  
   
-Obs.: Caso queira alterar os estilos, é necessário deixar o script do SASS rodando:
-  
-``
-npm run sass
-``
+Obs.: Caso queira alterar os estilos, é necessário deixar o script do SASS rodando:``npm run sass``
   
 ## Contribuidores  
 [Mtheus Hagedorn]([url](https://github.com/matheushagedorn)) 
