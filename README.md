@@ -26,5 +26,5 @@ Sinta-se à vontade para explorar o código para entender como a lógica do jogo
 Obs.: Caso queira alterar os estilos, é necessário deixar o script do SASS rodando: ``npm run sass``  
   
 ## Contribuidores  
-github.com/matheushagedorn
+[github.com/matheushagedorn](https://github.com/matheushagedorn/)  
 Se você encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request. Divirta-se jogando!  
