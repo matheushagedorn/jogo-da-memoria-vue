@@ -33,6 +33,7 @@
             cursor: pointer
         &-title
             width: 100%
+            margin: 1rem
         &-reset
             padding: 1.3em 3em
             font-size: variables.$font-md
@@ -47,7 +48,7 @@
             transition: all 0.3s ease 0s
             cursor: pointer
             outline: none
-            margin: 1rem
+            margin: .1rem
         &-reset:hover
             background-color: rgba(0,0,0,2)
             box-shadow: 0px 15px 20px variables.$areia
@@ -100,6 +101,8 @@
                     padding: .1rem
                     width: 10rem
                     height: 10rem
+                 
+
             &-ii
                 padding: 1rem
                 margin: 1rem
@@ -133,6 +136,11 @@
             &-pedra:hover
                 box-shadow: 0px 15px 20px variables.$areia
                 background-color: #e6e6e6
+                transform: scale(1.1)
+            &-pedra:active
+                box-shadow: 0px 15px 20px variables.$areia
+                background-color: #e6e6e6
+                transform: scale(0.9)
             &-papel
                 @include mixins.border-box
                 width: 7rem
@@ -143,6 +151,11 @@
             &-papel:hover
                 box-shadow: 0px 15px 20px variables.$areia
                 background-color: #e6e6e6
+                transform: scale(1.1)
+            &-papel:active
+                box-shadow: 0px 15px 20px variables.$areia
+                background-color: #e6e6e6
+                transform: scale(0.9)
             &-tesoura
                 @include mixins.border-box
                 width: 7rem
@@ -154,3 +167,8 @@
             &-tesoura:hover
                 box-shadow: 0px 15px 20px variables.$areia
                 background-color: #e6e6e6
+                transform: scale(1.1)
+            &-tesoura:active
+                box-shadow: 0px 15px 20px variables.$areia
+                background-color: #e6e6e6
+                transform: scale(0.9)

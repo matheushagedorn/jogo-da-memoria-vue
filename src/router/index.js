@@ -15,7 +15,7 @@ const router = createRouter({
       component: MenuPrincipalView,
     },
     {
-      path: "/game",
+      path: "/game/:name",
       name: "game",
       component: GameView,
     },
