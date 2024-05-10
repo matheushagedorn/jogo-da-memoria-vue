@@ -5,22 +5,25 @@
       <br />
       <img src="@/assets/img/jokenpo.png" />
       <div>
-        <button @mouseenter="playSound" @click="abreModal">Jogar</button>
-        <router-link to="como-jogar"><button @mouseenter="playSound">Como jogar</button></router-link>
-        <router-link to="creditos"><button @mouseenter="playSound">Créditos</button></router-link>
+        <button @click="abreModal">Jogar</button>
+        <router-link to="como-jogar"><button>Como jogar</button></router-link>
+        <router-link to="creditos"><button>Créditos</button></router-link>
       </div>
     </div>
     <div v-if="showModal" class="modal-container" @click="fechaModal">
       <div class="modal">
-        <p>Insira seu nome: </p>
-        <input v-model="userName" placeholder="Seu nome" @keydown.enter="startGame" autofocus />
+        <p>Insira seu nome:</p>
+        <input
+          maxlength="8"
+          v-model="playerName"
+          placeholder="Seu nome"
+          @keydown.enter="startGame"
+          autofocus
+        />
         <button @click="startGame" class="start-button">Iniciar</button>
       </div>
     </div>
   </div>
-  <audio autoplay id="hover">
-    <source src="@/assets/sounds/button_hover_sound.mp3" type="audio/mpeg">
-  </audio>
 </template>
 
 <script setup>
@@ -30,32 +33,28 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 const showModal = ref(false);
-const userName = ref("");
+const playerName = ref("");
 
 function abreModal() {
   showModal.value = true;
   nextTick(() => {
-    document.querySelector('input').focus();
+    document.querySelector("input").focus();
   });
 }
 
 function fechaModal(event) {
-  if (!event.target.closest('.modal')){
+  if (!event.target.closest(".modal")) {
     showModal.value = false;
   }
 }
 
 function startGame() {
-  if (userName.value === "") {
-    userName.value = "Jogador"
+  if (playerName.value === "") {
+    playerName.value = "Jogador";
     return;
   }
-  router.push({ name: "game", params: { name: userName.value } });
+  router.push({ name: "game", params: { name: playerName.value } });
   showModal.value = false;
-}
-
-function playSound() {
-  document.getElementById("hover").play()
 }
 </script>
 
@@ -87,8 +86,9 @@ function playSound() {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   animation: login-slideIn 0.5s ease-in-out forwards;
+  max-width: 100%;
 }
-.modal p{
+.modal p {
   text-align: center;
 }
 

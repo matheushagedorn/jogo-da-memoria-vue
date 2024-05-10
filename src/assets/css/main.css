@@ -1,6 +1,6 @@
 @font-face {
   font-family: "chalet";
-  src: url("src/assets/fonts/ChaletNewYorkNineteenSeventy.ttf");
+  src: url(src/assets/fonts/ChaletNewYorkNineteenSeventy.ttf);
 }
 @font-face {
   font-family: "bellota";
@@ -55,7 +55,7 @@
   animation: login-slideIn 0.5s ease-in-out forwards;
   background-color: #FFF;
   font-family: "chalet", sans-serif;
-  font-size: clamp(1.8144rem, 1.5963rem + 1.0902vw, 2.4413rem);
+  font-size: clamp(2.6125rem, 2.1942rem + 2.0913vw, 3.815rem);
   flex-direction: column;
   margin: 0 auto;
   max-width: 768px;
@@ -70,7 +70,7 @@
   animation: img-float 3s ease-in-out infinite;
 }
 .menu-principal-form button {
-  padding: 1.3em 3em;
+  padding: 1em 2em;
   font-size: clamp(1.05rem, 0.9804rem + 0.3478vw, 1.25rem);
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -84,6 +84,7 @@
   cursor: pointer;
   outline: none;
   margin: 1rem;
+  width: 75%;
 }
 .menu-principal-form button:hover {
   background-color: rgb(0, 0, 0);

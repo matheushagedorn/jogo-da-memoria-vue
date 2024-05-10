@@ -11,7 +11,14 @@
           <p>{{ playerName }}</p>
           <div class="game-container-player-i-rodada">
             <div class="game-container-player-i-rodada-escolha">
-              <img :src="imgJogador1" alt="Escolha do Jogador 1" :class="{ 'pulse-animation': imgJogador1 != '/src/assets/img/interrogacao.png' }" />
+              <img
+                :src="imgJogador1"
+                alt="Escolha do Jogador 1"
+                :class="{
+                  'pulse-animation':
+                    imgJogador1 != '/src/assets/img/interrogacao.png',
+                }"
+              />
               <div class="game-container-player-pontuacao">
                 Pontuação: {{ pontuacaoJogador }}
               </div>
@@ -25,7 +32,14 @@
           <p>IA</p>
           <div class="game-container-player-ii-rodada">
             <div class="game-container-player-ii-rodada-escolha">
-              <img :src="imgJogador2" alt="Escolha do Jogador 2" :class="{ 'pulse-animation': imgJogador2 != '/src/assets/img/interrogacao.png' }" />
+              <img
+                :src="imgJogador2"
+                alt="Escolha do Jogador 2"
+                :class="{
+                  'pulse-animation':
+                    imgJogador2 != '/src/assets/img/interrogacao.png',
+                }"
+              />
               <div class="game-container-player-pontuacao">
                 Pontuação: {{ pontuacaoIA }}
               </div>
@@ -67,7 +81,7 @@
   </div>
   <div v-if="showModal" class="modal-container">
     <div class="modal">
-      <p>Fim de jogo! vencedor:</p>
+      <p>Fim de jogo!</p>
       <br />
       <h1>{{ vencedor }}</h1>
       <br />
@@ -75,19 +89,8 @@
       <button @click="resetarJogo" class="reset-button">Resetar</button>
     </div>
   </div>
-  <audio id="pedra">
-    <source src="@/assets/sounds/rock_sound.mp3" type="audio/mpeg">
-  </audio>
-  
-  <audio id="papel">
-    <source src="@/assets/sounds/paper_sound.mp3" type="audio/mpeg">
-  </audio>
-  
-  <audio id="tesoura">
-    <source src="@/assets/sounds/scissor_sound.mp3" type="audio/mpeg">
-  </audio>
   <audio id="vitoria">
-    <source src="@/assets/sounds/victory_sound.mp3" type="audio/mpeg">
+    <source src="@/assets/sounds/victory_sound.mp3" type="audio/mpeg" />
   </audio>
 </template>
 
@@ -100,10 +103,6 @@ const router = useRouter();
 
 const playerName = ref(router.currentRoute.value.params.name);
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-
 const pontuacaoJogador = ref(0);
 const pontuacaoIA = ref(0);
 const contagemTurno = ref(1);
@@ -115,98 +114,121 @@ const imgJogador1 = ref("/src/assets/img/interrogacao.png");
 const imgJogador2 = ref("/src/assets/img/interrogacao.png");
 const vencedor = ref("");
 
+function numeroAleatorio(max) {
+  return Math.floor(Math.random() * max);
+}
+
+function numeroAleatorioPorcentagem() {
+  var randomNum = Math.random() * 100;
+  if (randomNum < 50) {
+    return 1;
+  } else if (randomNum < 90) {
+    return 2;
+  } else {
+    return 3;
+  }
+}
+
 const escolherItem = (item, escolha) => {
   escolhaJogador.value = escolha;
   imgJogador1.value = item;
   trocaTurno.value = false;
 
-  switch (escolhaJogador.value){
-    case 0:
-      document.getElementById("pedra").play();
-      break;
+  if (contagemTurno.value == 1) {
+    escolhaIA.value = numeroAleatorio(3);
+  }
 
+  switch (escolhaIA.value) {
+    case 0:
+      imgJogador2.value = "/src/assets/img/pedra.png";
+      break;
     case 1:
-      document.getElementById("papel").play();  
+      imgJogador2.value = "/src/assets/img/papel.png";
       break;
     case 2:
-    document.getElementById("tesoura").play();
-    break
+      imgJogador2.value = "/src/assets/img/tesoura.png";
+      break;
   }
-
-  if (contagemTurno.value == 1) {
-    escolhaIA.value = getRandomInt(3);
-  }
-
   setTimeout(() => {
-    switch (escolhaIA.value) {
-      case 0:
-        imgJogador2.value = "/src/assets/img/pedra.png";
-        document.getElementById("pedra").play();
-        break;
-      case 1:
-        imgJogador2.value = "/src/assets/img/papel.png";
-        document.getElementById("papel").play();
-        break;
-      case 2:
-        imgJogador2.value = "/src/assets/img/tesoura.png";
-        document.getElementById("tesoura").play();
-        break;
-    }
-    //Jogador
-    if (escolhaJogador.value == 0 && escolhaIA.value == 2) {
+    //Empate
+    if (escolhaJogador.value === escolhaIA.value) {
+      escolhaIA.value = (escolhaIA.value + 1) % 3;
+      console.log("Empate");
+
+      //Jogador
+    } else if (escolhaJogador.value == 0 && escolhaIA.value == 2) {
       pontuacaoJogador.value += 1;
-      escolhaIA.value = 0;
+      if (numeroAleatorioPorcentagem() === 1) {
+        escolhaIA.value = 0;
+      } else {
+        escolhaIA.value = 1;
+      }
       console.log("Ponto jogador");
     } else if (escolhaJogador.value == 2 && escolhaIA.value == 1) {
       pontuacaoJogador.value += 1;
-      escolhaIA.value = 2;
+      if (numeroAleatorioPorcentagem() === 1) {
+        escolhaIA.value = 2;
+      } else {
+        escolhaIA.value = 0;
+      }
       console.log("Ponto Jogador");
     } else if (escolhaJogador.value == 1 && escolhaIA.value == 0) {
       pontuacaoJogador.value += 1;
-      escolhaIA.value = 1;
+      if (numeroAleatorioPorcentagem() === 1) {
+        escolhaIA.value = 1;
+      } else {
+        escolhaIA.value = 2;
+      }
       console.log("Ponto jogador");
 
       //IA
     } else if (escolhaJogador.value == 2 && escolhaIA.value == 0) {
       pontuacaoIA.value += 1;
-      escolhaIA.value = 0;
+      if (numeroAleatorioPorcentagem() === 1) {
+        escolhaIA.value = 0;
+      } else if(numeroAleatorioPorcentagem() === 2){
+        escolhaIA.value = 1;
+      } else {
+        escolhaIA.value = 2;
+      }
       console.log("Ponto IA");
     } else if (escolhaJogador.value == 1 && escolhaIA.value == 2) {
       pontuacaoIA.value += 1;
-      escolhaIA.value = 2;
+      if (numeroAleatorioPorcentagem() === 1) {
+        escolhaIA.value = 2;
+      } else if(numeroAleatorioPorcentagem() === 2){
+        escolhaIA.value = 1;
+      } else {
+        escolhaIA.value = 0;
+      }
       console.log("Ponto IA");
     } else if (escolhaJogador.value == 0 && escolhaIA.value == 1) {
       pontuacaoIA.value += 1;
-      escolhaIA.value = 1;
-      console.log("Ponto IA");
-    } else if (escolhaJogador.value == 0 && escolhaIA.value == 0) {
-      escolhaIA.value = 1;
-      console.log("Empate");
-    } else if (escolhaJogador.value == 1 && escolhaIA.value == 1) {
-      escolhaIA.value = 2;
-      console.log("Empate");
-    } else if (escolhaJogador.value == 3 && escolhaIA.value == 3) {
-      escolhaIA.value = 1;
-      console.log("Empate");
-    }
-    setTimeout(() => {
-      imgJogador1.value = "/src/assets/img/interrogacao.png";
-      imgJogador2.value = "/src/assets/img/interrogacao.png";
-      trocaTurno.value = true;
-      contagemTurno.value += 1;
-      if (contagemTurno.value == 6) {
-        contagemTurno.value = 5;
-        vencedor.value =
-          pontuacaoJogador.value > pontuacaoIA.value
-            ? playerName.value
-            : pontuacaoIA.value > pontuacaoJogador.value
-            ? "IA"
-            : "Empate!";
-        showModal.value = true;
-        document.getElementById("vitoria").play();
+      if (numeroAleatorioPorcentagem() === 1) {
+        escolhaIA.value = 1;
+      } else if(numeroAleatorioPorcentagem() === 2){
+        escolhaIA.value = 0;
+      } else {
+        escolhaIA.value = 2;
       }
-    }, 2000);
-  }, 1000);
+      console.log("Ponto IA");
+    }
+    imgJogador1.value = "/src/assets/img/interrogacao.png";
+    imgJogador2.value = "/src/assets/img/interrogacao.png";
+    trocaTurno.value = true;
+    contagemTurno.value += 1;
+    if (contagemTurno.value == 6) {
+      contagemTurno.value = 5;
+      vencedor.value =
+        pontuacaoJogador.value > pontuacaoIA.value
+          ? playerName.value + " venceu!"
+          : pontuacaoIA.value > pontuacaoJogador.value
+          ? "IA venceu!"
+          : "Empate!";
+      showModal.value = true;
+      document.getElementById("vitoria").play();
+    }
+  }, 2000);
 };
 
 function resetarJogo() {
@@ -250,10 +272,10 @@ function resetarJogo() {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   justify-content: center;
   text-align: center;
-  animation: login-slideIn 0.5s ease-in-out forwards
+  animation: login-slideIn 0.5s ease-in-out forwards;
 }
 
-.modal h1{
+.modal h1 {
   font-weight: bold;
   font-size: clamp(1.26rem, 1.1548rem + 0.5261vw, 1.5625rem);
 }
@@ -301,5 +323,4 @@ function resetarJogo() {
     transform: scale(1);
   }
 }
-
 </style>
