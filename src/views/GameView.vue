@@ -120,7 +120,7 @@ function numeroAleatorio(max) {
 
 function numeroAleatorioPorcentagem() {
   var randomNum = Math.random() * 100;
-  if (randomNum < 50) {
+  if (randomNum < 80) {
     return 1;
   } else if (randomNum < 90) {
     return 2;
