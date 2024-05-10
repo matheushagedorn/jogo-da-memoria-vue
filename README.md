@@ -13,7 +13,7 @@ Este é um simples jogo de Pedra, Papel e Tesoura implementado usando Vue.js. El
 - Jogador: Exibe sua escolha de Pedra, Papel ou Tesoura junto com sua pontuação atual.  
 - IA (Computador): Exibe a escolha do computador junto com sua pontuação.  
 - Turno: Indica a rodada atual do jogo.  
-- Escolha: ~utilize os botões para selecionar seu símbolo de escolha
+- Escolha: utilize os botões para selecionar seu símbolo de escolha
 7. Jogabilidade:  
 - Clique em um dos botões de escolha (Pedra, Papel ou Tesoura) para fazer sua seleção.  
 - O computador selecionará aleatoriamente sua escolha.  
