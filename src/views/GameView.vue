@@ -86,7 +86,7 @@
       <h1>{{ vencedor }}</h1>
       <br />
       <p>Clique no botão abaixo para recomeçar:</p>
-      <button @click="resetarJogo" class="reset-button">Resetar</button>
+      <button @click="resetarJogo" class="reset-button">Jogar novamente</button>
     </div>
   </div>
   <audio id="vitoria">
@@ -195,7 +195,7 @@ const escolherItem = (item, escolha) => {
       pontuacaoIA.value += 1;
       if (numeroAleatorioPorcentagem() === 1) {
         escolhaIA.value = 0;
-      } else if(numeroAleatorioPorcentagem() === 2){
+      } else if (numeroAleatorioPorcentagem() === 2) {
         escolhaIA.value = 1;
       } else {
         escolhaIA.value = 2;
@@ -205,7 +205,7 @@ const escolherItem = (item, escolha) => {
       pontuacaoIA.value += 1;
       if (numeroAleatorioPorcentagem() === 1) {
         escolhaIA.value = 2;
-      } else if(numeroAleatorioPorcentagem() === 2){
+      } else if (numeroAleatorioPorcentagem() === 2) {
         escolhaIA.value = 1;
       } else {
         escolhaIA.value = 0;
@@ -215,7 +215,7 @@ const escolherItem = (item, escolha) => {
       pontuacaoIA.value += 1;
       if (numeroAleatorioPorcentagem() === 1) {
         escolhaIA.value = 1;
-      } else if(numeroAleatorioPorcentagem() === 2){
+      } else if (numeroAleatorioPorcentagem() === 2) {
         escolhaIA.value = 0;
       } else {
         escolhaIA.value = 2;
@@ -235,7 +235,12 @@ const escolherItem = (item, escolha) => {
           ? "IA venceu!"
           : "Empate!";
       showModal.value = true;
-      document.getElementById("vitoria").play();
+      if (
+        !(vencedor.value === "IA venceu!") &&
+        !(vencedor.value === "Empate!")
+      ) {
+        document.getElementById("vitoria").play();
+      }
     }
   }, 2000);
 };
