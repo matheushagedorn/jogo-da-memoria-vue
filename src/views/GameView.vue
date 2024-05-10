@@ -120,13 +120,22 @@ function numeroAleatorio(max) {
 
 function numeroAleatorioPorcentagem() {
   var randomNum = Math.random() * 100;
+  var opcoes = [0, 1, 2];
+  var escolhaIA;
+
   if (randomNum < 50) {
-    return 1;
+    escolhaIA = 0;
   } else if (randomNum < 75) {
-    return 2;
+    escolhaIA = 1;
   } else {
-    return 3;
+    escolhaIA = 2;
   }
+
+  if (!opcoes.includes(escolhaIA)) {
+    escolhaIA = opcoes[Math.floor(Math.random() * opcoes.length)];
+  }
+
+  return escolhaIA;
 }
 
 const escolherItem = (item, escolha) => {
@@ -152,7 +161,7 @@ const escolherItem = (item, escolha) => {
   setTimeout(() => {
     //Empate
     if (escolhaJogador.value === escolhaIA.value) {
-      escolhaIA.value = (escolhaIA.value + 1) % 3;
+      escolhaIA.value = numeroAleatorioPorcentagem();
       console.log("Empate");
 
       //Jogador
