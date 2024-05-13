@@ -26,6 +26,10 @@
   font-family: "pixelify-sans";
   src: url(src/assets/fonts/PixelifySans-Regular.ttf);
 }
+@font-face {
+  font-family: "poetsen-one";
+  src: url(@/assets/fonts/PoetsenOne-Regular.ttf);
+}
 .menu-principal {
   align-items: center;
   display: flex;
@@ -54,7 +58,7 @@
   justify-content: space-between;
   animation: login-slideIn 0.5s ease-in-out forwards;
   background-color: #FFF;
-  font-family: "chalet", sans-serif;
+  font-family: "poetsen-one", sans-serif;
   font-size: clamp(2.6125rem, 2.1942rem + 2.0913vw, 3.815rem);
   flex-direction: column;
   margin: 0 auto;
@@ -153,7 +157,7 @@
   margin: 2rem 0;
   display: flex;
   flex-direction: column;
-  font-family: "chalet", sans-serif;
+  font-family: "poetsen-one", sans-serif;
   justify-content: space-around;
   align-items: center;
   text-align: center;
@@ -164,6 +168,13 @@
 }
 .game-container button:hover {
   cursor: pointer;
+}
+.game-container-status {
+  text-align: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  height: 0.1rem;
+  width: 100%;
 }
 .game-container-title {
   width: 100%;
@@ -220,7 +231,6 @@
   align-items: center;
   align-self: center;
   padding: 1rem;
-  margin: auto auto;
 }
 .game-container-player-vs {
   justify-content: center;
@@ -300,8 +310,10 @@
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: center;
-  gap: 6rem;
+  gap: 7rem;
   padding: 0.1rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 .game-container-escolhaJogador-pedra {
   border: 1px solid #899064;
@@ -402,7 +414,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  font-family: "chalet", sans-serif;
+  font-family: "poetsen-one", sans-serif;
   flex-direction: row;
   margin: 0 auto;
   max-width: 768px;
@@ -479,7 +491,7 @@
   justify-content: center;
   background-color: #FFF;
   animation: login-slideIn 0.5s ease-in-out forwards;
-  font-family: "chalet", sans-serif;
+  font-family: "poetsen-one", sans-serif;
 }
 .creditos-container p {
   font-size: clamp(1.05rem, 0.9804rem + 0.3478vw, 1.25rem);

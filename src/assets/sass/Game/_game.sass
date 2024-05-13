@@ -21,7 +21,7 @@
         @include mixins.border-box
         display: flex
         flex-direction: column
-        font-family: variables.$font-chalet
+        font-family: variables.$font-poetsen-one
         justify-content: space-around
         align-items: center
         text-align: center
@@ -32,6 +32,12 @@
 
         button:hover
             cursor: pointer
+        &-status    
+            text-align: center
+            justify-content: center
+            margin-top: .5rem
+            height: .1rem
+            width: 100%
         &-title
             width: 100%
             margin: 1rem
@@ -75,7 +81,6 @@
                 align-items: center
                 align-self: center
                 padding: 1rem
-                margin: auto auto
             &-vs
                 justify-content: center
                 align-content: center
@@ -125,8 +130,10 @@
             display: grid
             grid-template-columns: repeat(3, auto)
             justify-content: center
-            gap: 6rem
+            gap: 7rem
             padding: .1rem
+            display: flex
+            flex-wrap: wrap
             &-pedra
                 @include mixins.border-box
                 width: 7rem
@@ -186,7 +193,3 @@
 
 .game-container 
     @media (min-width: variables.$container-md + 1) and (max-width: variables.$container-lg) 
-    
-
-
-.game-container 

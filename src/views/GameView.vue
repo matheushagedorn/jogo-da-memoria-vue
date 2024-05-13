@@ -46,10 +46,12 @@
             </div>
           </div>
         </div>
+        <br />
         <div class="game-container-player-turno">
-          Turno: {{ contagemTurno }}
+          <p>Turno: {{ contagemTurno }}</p>
         </div>
       </div>
+      <p class="game-container-status">{{ status }}</p>
       <div class="game-container-escolhaJogador">
         <button
           @click="escolherItem('/src/assets/img/pedra.png', 0)"
@@ -76,7 +78,6 @@
           <img src="@/assets/img/tesoura.png" alt="Tesoura" />
         </button>
       </div>
-      <button @click="resetarJogo" class="game-container-reset">Resetar</button>
     </div>
   </div>
   <div v-if="showModal" class="modal-container">
@@ -112,6 +113,7 @@ const escolhaIA = ref(0);
 const showModal = ref(false);
 const imgJogador1 = ref("/src/assets/img/interrogacao.png");
 const imgJogador2 = ref("/src/assets/img/interrogacao.png");
+const status = ref("Selecione uma das imagens abaixo para começar!");
 const vencedor = ref("");
 
 function numeroAleatorio(max) {
@@ -121,21 +123,21 @@ function numeroAleatorio(max) {
 function numeroAleatorioPorcentagem() {
   var randomNum = Math.random() * 100;
   var opcoes = [0, 1, 2];
-  var escolhaIA;
+  var resultado;
 
   if (randomNum < 50) {
-    escolhaIA = 0;
+    resultado = 0;
   } else if (randomNum < 75) {
-    escolhaIA = 1;
+    resultado = 1;
   } else {
-    escolhaIA = 2;
+    resultado = 2;
   }
 
-  if (!opcoes.includes(escolhaIA)) {
-    escolhaIA = opcoes[Math.floor(Math.random() * opcoes.length)];
+  if (!opcoes.includes(resultado)) {
+    resultado = opcoes[Math.floor(Math.random() * opcoes.length)];
   }
 
-  return escolhaIA;
+  return resultado;
 }
 
 const escolherItem = (item, escolha) => {
@@ -224,10 +226,8 @@ const escolherItem = (item, escolha) => {
     }
     imgJogador1.value = "/src/assets/img/interrogacao.png";
     imgJogador2.value = "/src/assets/img/interrogacao.png";
-    trocaTurno.value = true;
     contagemTurno.value += 1;
-    if (contagemTurno.value == 6) {
-      contagemTurno.value = 5;
+    if (contagemTurno.value > 5) {
       vencedor.value =
         pontuacaoJogador.value > pontuacaoIA.value
           ? playerName.value + " venceu!"
@@ -242,6 +242,7 @@ const escolherItem = (item, escolha) => {
         document.getElementById("vitoria").play();
       }
     }
+    trocaTurno.value = true;
   }, 2000);
 };
 

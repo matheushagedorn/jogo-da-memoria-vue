@@ -80,7 +80,7 @@ function startGame() {
 }
 
 .modal {
-  font-family: "chalet", sans-serif;
+  font-family: "poetsen-one", sans-serif;
   background-color: #fff;
   padding: 1rem;
   border-radius: 8px;
@@ -93,7 +93,7 @@ function startGame() {
 }
 
 .start-button {
-  font-family: "chalet", sans-serif;
+  font-family: "poetsen-one", sans-serif;
   padding: 1.3rem 3rem;
   text-transform: uppercase;
   letter-spacing: 2.5px;
