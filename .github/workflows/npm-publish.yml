@@ -1,0 +1,47 @@
+name: Vue.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Instalação das dependências do Vue.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install -g @vue/cli
+      
+      # Instalação das dependências do projeto e execução dos testes
+      - name: Install and Test
+        run: |
+          npm ci
+          npm test
+      
+      # Construção do projeto Vue.js
+      - name: Build Vue.js Project
+        run: npm run build
+
+  serve:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Instalação das dependências do Vue.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install -g @vue/cli
+      
+      # Instalação das dependências do projeto e execução do servidor de desenvolvimento
+      - name: Install and Run Development Server
+        run: |
+          npm ci
+          npm run dev
