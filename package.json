@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "sass": "sass --watch src/assets/sass/main.sass:src/assets/css/main.css",
-    "predeply": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
