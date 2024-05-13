@@ -1,6 +1,6 @@
 {
   "homepage": "https://matheushagedorn.github.io/jokenpo-ia-vue/",
-  "name": "jogo-da-memoria",
+  "name": "jo-ken-po-ia",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "gh-pages": "^6.1.1",
     "vite": "^5.2.8"
   }
 }
