@@ -6,6 +6,10 @@
         link="/menu-principal"
         class="game-container-title"
       />
+      <div class="game-container-turno">
+        <p>Turno: {{ contagemTurno }}</p>
+        <p>{{ status }}</p>
+      </div>
       <div class="game-container-player">
         <div class="game-container-player-i">
           <p>{{ playerName }}</p>
@@ -47,11 +51,7 @@
           </div>
         </div>
         <br />
-        <div class="game-container-player-turno">
-          <p>Turno: {{ contagemTurno }}</p>
-        </div>
       </div>
-      <p class="game-container-status">{{ status }}</p>
       <div class="game-container-escolhaJogador">
         <button
           @click="escolherItem('/src/assets/img/pedra.png', 0)"
@@ -113,7 +113,7 @@ const escolhaIA = ref(0);
 const showModal = ref(false);
 const imgJogador1 = ref("/src/assets/img/interrogacao.png");
 const imgJogador2 = ref("/src/assets/img/interrogacao.png");
-const status = ref("Selecione uma das imagens abaixo para começar!");
+const status = ref("Selecione um dos símbolos abaixo para começar!");
 const vencedor = ref("");
 
 function numeroAleatorio(max) {
@@ -164,11 +164,13 @@ const escolherItem = (item, escolha) => {
     //Empate
     if (escolhaJogador.value === escolhaIA.value) {
       escolhaIA.value = numeroAleatorioPorcentagem();
+      status.value = ("Próxima rodada! Empate!")
       console.log("Empate");
 
       //Jogador
     } else if (escolhaJogador.value == 0 && escolhaIA.value == 2) {
       pontuacaoJogador.value += 1;
+      status.value = ("Pedra vence tesoura! Ponto para " + playerName.value + "!")
       if (numeroAleatorioPorcentagem() === 1) {
         escolhaIA.value = 0;
       } else {
@@ -177,6 +179,7 @@ const escolherItem = (item, escolha) => {
       console.log("Ponto jogador");
     } else if (escolhaJogador.value == 2 && escolhaIA.value == 1) {
       pontuacaoJogador.value += 1;
+      status.value = ("Tesoura vence papel! Ponto para " + playerName.value + "!")
       if (numeroAleatorioPorcentagem() === 1) {
         escolhaIA.value = 2;
       } else {
@@ -185,6 +188,7 @@ const escolherItem = (item, escolha) => {
       console.log("Ponto Jogador");
     } else if (escolhaJogador.value == 1 && escolhaIA.value == 0) {
       pontuacaoJogador.value += 1;
+      status.value = ("Papel vence pedra! Ponto para " + playerName.value + "!")
       if (numeroAleatorioPorcentagem() === 1) {
         escolhaIA.value = 1;
       } else {
@@ -195,6 +199,7 @@ const escolherItem = (item, escolha) => {
       //IA
     } else if (escolhaJogador.value == 2 && escolhaIA.value == 0) {
       pontuacaoIA.value += 1;
+      status.value = ("Pedra vence tesoura! Ponto para IA!")
       if (numeroAleatorioPorcentagem() === 1) {
         escolhaIA.value = 0;
       } else if (numeroAleatorioPorcentagem() === 2) {
@@ -205,6 +210,7 @@ const escolherItem = (item, escolha) => {
       console.log("Ponto IA");
     } else if (escolhaJogador.value == 1 && escolhaIA.value == 2) {
       pontuacaoIA.value += 1;
+      status.value = ("Tesoura vence papel! Ponto para IA!")
       if (numeroAleatorioPorcentagem() === 1) {
         escolhaIA.value = 2;
       } else if (numeroAleatorioPorcentagem() === 2) {
@@ -215,6 +221,7 @@ const escolherItem = (item, escolha) => {
       console.log("Ponto IA");
     } else if (escolhaJogador.value == 0 && escolhaIA.value == 1) {
       pontuacaoIA.value += 1;
+      status.value = ("Papel vence pedra! Ponto para IA!")
       if (numeroAleatorioPorcentagem() === 1) {
         escolhaIA.value = 1;
       } else if (numeroAleatorioPorcentagem() === 2) {
@@ -280,7 +287,7 @@ function resetarJogo() {
 }
 
 .modal {
-  font-family: "chalet", sans-serif;
+  font-family: "poetsen-one", sans-serif;
   background-color: #fff;
   padding: 1rem;
   border-radius: 8px;
@@ -296,7 +303,7 @@ function resetarJogo() {
 }
 
 .reset-button {
-  font-family: "chalet", sans-serif;
+  font-family: "poetsen-one", sans-serif;
   padding: 1.3rem 3rem;
   text-transform: uppercase;
   letter-spacing: 2.5px;
