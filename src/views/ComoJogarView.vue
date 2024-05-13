@@ -1,7 +1,7 @@
 <template>
   <div class="como-jogar">
     <div class="como-jogar-container">
-      <TituloPagina titulo="Como jogar" link="/menu-principal" />
+      <TituloPagina titulo="Como jogar" link="/menu-principal" class="como-jogar-container-title"/>
       <h1 class="como-jogar-container-header">Como jogar</h1>
       <p>
         O jogo consiste basicamente em 3 itens: Pedra, Papel ou Tesoura. O

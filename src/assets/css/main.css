@@ -184,6 +184,7 @@
 .game-container-title {
   width: 100%;
   margin: 0.1rem;
+  font-family: "poetsen-one", sans-serif;
 }
 .game-container-reset {
   padding: 1.3em 3em;
@@ -403,6 +404,9 @@
   animation: login-slideIn 0.5s ease-in-out forwards;
   background-color: #FFF;
 }
+.como-jogar-container-title {
+  font-family: "poetsen-one", sans-serif;
+}
 .como-jogar-container-header {
   font-size: clamp(1.8144rem, 1.5963rem + 1.0902vw, 2.4413rem);
   align-items: center;
@@ -494,6 +498,9 @@
   padding: 0.5rem;
   width: 100%;
   text-align: center;
+}
+.creditos-container-title {
+  font-family: "poetsen-one", sans-serif;
 }
 .creditos-container-links {
   justify-content: center;

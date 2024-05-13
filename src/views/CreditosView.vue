@@ -1,7 +1,7 @@
 <template>
   <div class="creditos">
     <div class="creditos-container">
-      <TituloPagina titulo="Créditos" link="/menu-principal" />
+      <TituloPagina titulo="Créditos" link="/menu-principal" class="creditos-container-title"/>
       <p>
         Esse é um projeto desenvolvido por alunos do curso Engenharia de
         Software na <span style="font-weight: bold">UNIVILLE</span> para a disciplina Fundamentos da Inteligência
