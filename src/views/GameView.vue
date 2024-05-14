@@ -93,6 +93,9 @@
   <audio id="vitoria">
     <source src="@/assets/sounds/victory_sound.mp3" type="audio/mpeg" />
   </audio>
+  <audio id="derrota">
+    <source src="@/assets/sounds/defeat_sound.mp3" type="audio/mpeg" />
+  </audio>
 </template>
 
 <script setup>
@@ -243,9 +246,10 @@ const escolherItem = (item, escolha) => {
           : "Empate!";
       showModal.value = true;
       if (
-        !(vencedor.value === "IA venceu!") &&
-        !(vencedor.value === "Empate!")
+        (vencedor.value == "IA venceu!")
       ) {
+        document.getElementById("derrota").play();
+      } else if (vencedor.value == playerName.value + " venceu!"){
         document.getElementById("vitoria").play();
       }
     }
